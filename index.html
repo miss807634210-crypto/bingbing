@@ -1,0 +1,116 @@
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冰冰的歌单 - 虚拟唱见主播</title>
+    <!-- Tailwind CSS v3 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide 图标库 -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-cover bg-center min-h-screen font-sans text-gray-800">
+    <!-- 背景遮罩 -->
+    <div class="fixed inset-0 bg-black/10 z-0"></div>
+    
+    <!-- 星光效果容器 -->
+    <div id="stars-container" class="fixed inset-0 z-0"></div>
+
+    <div class="relative z-10 container mx-auto px-4 py-8 max-w-6xl">
+        <!-- 头部区域 -->
+        <header class="text-center mb-8">
+            <div class="flex flex-col items-center mb-4">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg">冰冰的歌单</h1>
+                <p class="text-xl text-white/90 mb-4" style="color: rgba(237, 78, 152, 0.9); font-style: italic; font-weight: normal;">虚拟唱见主播</p>
+                <div class="bg-white/20 backdrop-blur-md rounded-lg p-4 max-w-2xl mx-auto">
+                    <p class="text-white/90 italic" style="color: rgba(0, 124, 219, 0.9); font-style: italic;">"谢谢你们愿意听我唱歌，愿意陪我走过一个又一个日夜。没有你们的支持，我走不到今天。未来的路还很长，我会带着你们的爱，继续唱更多好听的歌"</p>
+                </div>
+            </div>
+            <a href="https://live.bilibili.com/27259055?broadcast_type=0&amp;is_room_feed=1&amp;spm_id_from=333.1387.to_liveroom.0.click&amp;live_from=86002" target="_blank" class="inline-flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-pink-500/50">
+                <i data-lucide="music"></i>
+                <span>前往直播间</span>
+            </a>
+        </header>
+
+        <!-- 功能区 -->
+        <div class="bg-white/20 backdrop-blur-md rounded-xl p-4 mb-8 shadow-lg">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="flex-1">
+                    <label for="category-filter" class="block text-white mb-2 font-medium">歌曲分类</label>
+                    <select id="category-filter" class="w-full bg-white/80 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <option value="all">全部歌曲</option>
+                        <option value="古风国风类">古风国风类</option>
+                        <option value="甜蜜情歌类">甜蜜情歌类</option>
+                        <option value="伤感催泪类">伤感催泪类</option>
+                        <option value="小众清新类">小众清新类</option>
+                        <option value="经典怀旧类">经典怀旧类</option>
+                        <option value="励志治愈类">励志治愈类</option>
+                    </select>
+                </div>
+                <div class="flex-1">
+                    <label for="search-input" class="block text-white mb-2 font-medium">关键字搜索</label>
+                    <div class="flex">
+                        <input type="text" id="search-input" placeholder="输入歌名关键字..." class="flex-1 bg-white/80 border border-gray-300 rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <button id="search-button" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-r-lg transition-colors duration-300">
+                            <i data-lucide="search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/4">
+                    <label class="block text-white mb-2 font-medium">随机点歌</label>
+                    <button id="random-song-button" class="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 text-lg">
+                        <i data-lucide="shuffle" class="w-6 h-6"></i>
+                        <span>随机点歌</span>
+                    </button>
+                </div>
+            </div>
+            <!-- 使用提示 -->
+            <div class="mt-4 text-center">
+                <p class="text-white/80 text-sm flex items-center justify-center gap-2 animate-pulse">
+                    <i data-lucide="mouse-pointer" class="w-4 h-4"></i>
+                    <span style="color: rgba(250, 65, 65, 0.8);">点击歌名即可复制文本，快来点歌吧~</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- 歌单展示区 -->
+        <div id="songlist-container" class="space-y-8">
+            <!-- 歌曲分类将通过JavaScript动态生成 -->
+        </div>
+
+        <!-- 底部区域 -->
+        <footer class="mt-16 text-center text-white/80">
+            <p>© 2026 冰冰应援会</p>
+        </footer>
+    </div>
+
+    <!-- 普通提示弹窗 -->
+    <div id="toast" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-md text-gray-800 font-medium py-4 px-8 rounded-xl shadow-2xl opacity-0 pointer-events-none transition-opacity duration-300 z-50 flex items-center gap-2">
+        <i data-lucide="check-circle" class="text-green-500"></i>
+        <span id="toast-message"></span>
+    </div>
+
+    <!-- 随机点歌惊喜弹窗 -->
+    <div id="surprise-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 opacity-0 pointer-events-none transition-all duration-500">
+        <div class="bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl p-8 max-w-md w-full mx-4 transform scale-90 transition-all duration-500 shadow-2xl border-4 border-white/30">
+            <div class="text-center">
+                <div class="mb-6">
+                    <i data-lucide="sparkles" class="w-20 h-20 text-yellow-300 mx-auto animate-pulse"></i>
+                </div>
+                <h3 class="text-3xl font-bold text-white mb-4 animate-bounce">恭喜你！</h3>
+                <p class="text-xl text-white/90 mb-6">抽中了一首巨好听的歌曲</p>
+                <div class="bg-white/20 backdrop-blur-md rounded-xl p-4 mb-6">
+                    <p id="random-song-name" class="text-2xl font-bold text-white"></p>
+                </div>
+                <p class="text-white/80 mb-8">已复制歌名，快前往直播间点歌吧！</p>
+                <button id="close-surprise" class="bg-white text-pink-600 font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                    太棒了！
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body></html>
