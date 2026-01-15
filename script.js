@@ -75,6 +75,7 @@ const starsContainer = document.getElementById('stars-container');
 const surpriseModal = document.getElementById('surprise-modal');
 const randomSongName = document.getElementById('random-song-name');
 const closeSurprise = document.getElementById('close-surprise');
+const backToTopButton = document.getElementById('back-to-top');
 
 // 初始化函数
 function init() {
@@ -166,6 +167,31 @@ function setupEventListeners() {
         if (e.key === 'Escape' && !surpriseModal.classList.contains('pointer-events-none')) {
             closeSurpriseModal();
         }
+    });
+    
+    // 返回顶端按钮
+    backToTopButton.addEventListener('click', scrollToTop);
+    
+    // 监听滚动事件
+    window.addEventListener('scroll', handleScroll);
+}
+
+// 处理滚动事件
+function handleScroll() {
+    if (window.scrollY > 300) {
+        backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
+        backToTopButton.classList.add('opacity-100', 'pointer-events-auto');
+    } else {
+        backToTopButton.classList.add('opacity-0', 'pointer-events-none');
+        backToTopButton.classList.remove('opacity-100', 'pointer-events-auto');
+    }
+}
+
+// 滚动到顶部
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
 }
 
@@ -312,7 +338,8 @@ function handleRandomSong() {
     // 显示惊喜弹窗
     showSurpriseModal(randomSong.name);
     
-    // 高亮显示选中的歌曲
+    // 高亮显示选中的歌曲（不自动滚动）
+    /*
     setTimeout(() => {
         const categoryCard = document.querySelector(`[data-category="${randomSong.category}"]`);
         if (categoryCard) {
@@ -332,6 +359,7 @@ function handleRandomSong() {
             }, 500);
         }
     }, 300);
+    */
 }
 
 // 显示惊喜弹窗

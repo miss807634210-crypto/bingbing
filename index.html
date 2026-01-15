@@ -23,7 +23,7 @@
                 <h1 class="text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg">冰冰的歌单</h1>
                 <p class="text-xl text-white/90 mb-4" style="color: rgba(237, 78, 152, 0.9); font-style: italic; font-weight: normal;">虚拟唱见主播</p>
                 <div class="bg-white/20 backdrop-blur-md rounded-lg p-4 max-w-2xl mx-auto">
-                    <p class="text-white/90 italic" style="color: rgba(0, 124, 219, 0.9); font-style: italic;">"谢谢你们愿意听我唱歌，愿意陪我走过一个又一个日夜。没有你们的支持，我走不到今天。未来的路还很长，我会带着你们的爱，继续唱更多好听的歌"</p>
+                    <p class="text-white/90 italic" style="color: rgba(0, 124, 219, 0.9); font-style: italic;">谢谢你们愿意听我唱歌，愿意陪我走过一个又一个日夜。没有你们的支持，我走不到今天。未来的路还很长，我会带着你们的爱，继续唱更多好听的歌。</p>
                 </div>
             </div>
             <a href="https://live.bilibili.com/27259055?broadcast_type=0&amp;is_room_feed=1&amp;spm_id_from=333.1387.to_liveroom.0.click&amp;live_from=86002" target="_blank" class="inline-flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-pink-500/50">
@@ -51,14 +51,14 @@
                     <label for="search-input" class="block text-white mb-2 font-medium">关键字搜索</label>
                     <div class="flex">
                         <input type="text" id="search-input" placeholder="输入歌名关键字..." class="flex-1 bg-white/80 border border-gray-300 rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500">
-                        <button id="search-button" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-r-lg transition-colors duration-300">
+                        <button id="search-button" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-r-lg transition-colors duration-300">
                             <i data-lucide="search"></i>
                         </button>
                     </div>
                 </div>
                 <div class="md:w-1/4">
                     <label class="block text-white mb-2 font-medium">随机点歌</label>
-                    <button id="random-song-button" class="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 text-lg">
+                    <button id="random-song-button" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 text-lg">
                         <i data-lucide="shuffle" class="w-6 h-6"></i>
                         <span>随机点歌</span>
                     </button>
@@ -68,7 +68,7 @@
             <div class="mt-4 text-center">
                 <p class="text-white/80 text-sm flex items-center justify-center gap-2 animate-pulse">
                     <i data-lucide="mouse-pointer" class="w-4 h-4"></i>
-                    <span style="color: rgba(250, 65, 65, 0.8);">点击歌名即可复制文本，快来点歌吧~</span>
+                    <span style="color: rgba(250, 65, 65, 0.8);">点击歌名即可复制文本，快来直播间点歌吧~</span>
                 </p>
             </div>
         </div>
@@ -97,18 +97,23 @@
                 <div class="mb-6">
                     <i data-lucide="sparkles" class="w-20 h-20 text-yellow-300 mx-auto animate-pulse"></i>
                 </div>
-                <h3 class="text-3xl font-bold text-white mb-4 animate-bounce">恭喜你！</h3>
+                <h3 class="text-3xl font-bold text-white mb-4 animate-bounce">恭喜你</h3>
                 <p class="text-xl text-white/90 mb-6">抽中了一首巨好听的歌曲</p>
                 <div class="bg-white/20 backdrop-blur-md rounded-xl p-4 mb-6">
-                    <p id="random-song-name" class="text-2xl font-bold text-white"></p>
+                    <p id="random-song-name" class="text-2xl font-bold text-white" style="color: rgb(252, 248, 3);"></p>
                 </div>
                 <p class="text-white/80 mb-8">已复制歌名，快前往直播间点歌吧！</p>
-                <button id="close-surprise" class="bg-white text-pink-600 font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
-                    太棒了！
+                <button id="close-surprise" class="bg-white text-pink-600 font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg" style="font-size: 18px;">
+                    太棒了
                 </button>
             </div>
         </div>
     </div>
+
+    <!-- 返回顶端按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-3 shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-50">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </button>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
