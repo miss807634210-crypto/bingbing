@@ -6,13 +6,17 @@
 }
 
 body {
-    background-image: url('https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c1d853d3ea914b5ba8e655ff559a9f54.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=202601151548236F0AC4A9F47633A4B038&rrcfp=8a172a1a&x-expires=1769068103&x-signature=ZNr8PBaDoJ1B7QJBYnE0JCFqJ6w%3D');
+    background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/3cd209bfe760453186d3f3a82fe6a656.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=202601222112482F65AF6B4B7EBA011B15&rrcfp=8a172a1a&x-expires=1769692368&x-signature=L4YvXqjKd%2ByxIJmo48xTb86Pd0M%3D');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    background-repeat: no-repeat;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: #333;
     line-height: 1.6;
+    /* 三端适配 */
+    min-height: 100vh;
+    width: 100%;
 }
 
 /* 星光效果 */
