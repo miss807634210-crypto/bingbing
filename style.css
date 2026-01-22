@@ -6,7 +6,8 @@
 }
 
 body {
-    background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/3cd209bfe760453186d3f3a82fe6a656.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=202601222112482F65AF6B4B7EBA011B15&rrcfp=8a172a1a&x-expires=1769692368&x-signature=L4YvXqjKd%2ByxIJmo48xTb86Pd0M%3D');
+    /* 默认使用横版图片（电脑端和平板端） */
+    background-image: url('https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/b04bbf0962b344b9891c214f326cc3c2.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=20260122222447579E415C8550D7018B7D&rrcfp=8a172a1a&x-expires=1769696687&x-signature=LAynLZ9NhwAHOnCTBVRLtDFk6gM%3D');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -17,6 +18,15 @@ body {
     /* 三端适配 */
     min-height: 100vh;
     width: 100%;
+}
+
+/* 手机端使用竖版图片 */
+@media (max-width: 767px) {
+    body {
+        background-image: url('https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/77dfd5e5596b427399b70f04d5f4d09a.jpg~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=20260122222447579E415C8550D7018B7D&rrcfp=8a172a1a&x-expires=1769696687&x-signature=X9DK3RzpRmgdxB4%2FAjBWUko782c%3D');
+        background-size: cover;
+        background-position: center;
+    }
 }
 
 /* 星光效果 */
